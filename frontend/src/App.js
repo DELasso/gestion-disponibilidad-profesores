@@ -1,11 +1,21 @@
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import Appointments from './pages/Appointments';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Bienvenido al Sistema de Gestión de Disponibilidad de Profesores</h1>
-      <p>Este sistema permite a estudiantes y docentes. Gestionar o consultar disponibilidad para tutorías.</p>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/appointments" element={<Appointments />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
